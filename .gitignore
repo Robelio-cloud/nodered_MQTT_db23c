@@ -46,3 +46,4 @@ tfplan
 # Outras pastas temporárias
 __pycache__/
 *.log
+.terraform/
