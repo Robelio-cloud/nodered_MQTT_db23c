@@ -1,16 +1,33 @@
-CREATE USER C##nodered IDENTIFIED BY Password123;
-GRANT CREATE SESSION TO C##nodered;
-GRANT CREATE TABLE TO C##nodered;
-ALTER USER C##NODERED QUOTA UNLIMITED ON USERS;
-CREATE TABLE C##nodered.nodered (col1 varchar2(500),col2 varchar2(500));
-CREATE TABLE C##nodered.sensor_data (
-  id NUMBER GENERATED ALWAYS AS IDENTITY, -- Optional auto-generated ID column
-  vibration NUMBER,
-  sound NUMBER,
-  temp NUMBER,
-  humi NUMBER,
-  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Criação do usuário nodered com senha nodered
+CREATE USER nodered IDENTIFIED BY nodered;
+
+-- Concessões de permissões básicas
+GRANT CREATE SESSION TO nodered;
+GRANT CREATE TABLE TO nodered;
+
+-- Permitir uso de espaço em tablespace USERS
+ALTER USER nodered QUOTA UNLIMITED ON USERS;
+
+-- Tabela genérica para testes
+CREATE TABLE nodered.nodered (
+    col1 VARCHAR2(500),
+    col2 VARCHAR2(500)
 );
--- INSERT INTO C##nodered.sensor_data (vibration, sound, temp, humi) VALUES (6.87, 549, 30.53, 38.2);
--- select count(*) from C##nodered.sensor_data
-exit;
+
+-- Tabela principal de sensores
+CREATE TABLE nodered.sensor_data (
+    id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    vibration NUMBER,
+    temperature NUMBER,
+    rpm NUMBER,
+    current NUMBER,
+    level NUMBER,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Descomente para testes manuais:
+-- INSERT INTO nodered.sensor_data (vibration, temperature, rpm, current, level) VALUES (0.98, 34.5, 1200, 4.2, 75.0);
+-- SELECT COUNT(*) FROM nodered.sensor_data;
+
+-- Finaliza a sessão
+EXIT;

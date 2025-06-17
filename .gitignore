@@ -31,3 +31,18 @@ Temporary Items
 .crt
 .csr
 .pem
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+tfplan
+
+# Chaves
+*.key
+*.key.pub
+
+# Outras pastas temporárias
+__pycache__/
+*.log

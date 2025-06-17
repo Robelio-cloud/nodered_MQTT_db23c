@@ -1,48 +1,30 @@
 variable "compartment_ocid" {
-  description = ""
+  description = "OCID do compartimento onde a instância já está criada"
 }
 
 variable "instance_name" {
-  description = ""
+  description = "Nome da instância já criada"
+}
+
+variable "existing_instance_id" {
+  description = "OCID da instância já criada pela parte 1"
+  type        = string
 }
 
 
-variable "instance_shape" {
-  description = ""
+variable "ssh_public_key_path" {
+  description = "Caminho para a chave pública"
+}
+
+variable "ssh_private_key_path" {
+  description = "Caminho para a chave privada"
 }
 
 variable "region" {
-  description = ""
+  description = "Região OCI"
 }
-
-variable "ssh_public_key_path" {
-  description = ""
-}
-variable "ssh_private_key_path" {
-  description = ""
-}
-
-variable "subnet_cidr" {
-  description = ""
-}
-
-variable "vcn_cidr" {
-  description = ""
-}
-
-variable "core_count" {
-  description = "core count"
-  default     = 1
-}
-
-variable "AD_number" {
-  type          = number
-  description   = ""
-  default       = 0
-}
-
 
 variable "DB_PASS" {
-  description = "SYSTEM and PDBADMIN password"
+  description = "Senha do SYSTEM e do PDBADMIN"
   default     = "Tiger$tr0ng2023"
 }
